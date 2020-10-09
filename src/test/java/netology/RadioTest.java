@@ -6,52 +6,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
+    //увеличиваем громкость
     @Test
-    public void testRadio() {
+    public void testRadioUpVolume() {
+
         Radio radio = new Radio();
 
-        //увеличиваем громкость
+        for (int i = 1; i < 100; i++) {
+            radio.increaseSound();
+        }
+        assertEquals(99, radio.getCurrentSound());
 
         radio.increaseSound();
-        assertEquals(7, radio.getCurrentSound());
+        assertEquals(100, radio.getCurrentSound());
+
+        //дальнейшее нажатие ни к чему не приводит, значение остается прежним
+        radio.increaseSound();
+        assertEquals(100, radio.getCurrentSound());
+    }
+
+    //уменьшаем громкость
+    @Test
+    public void testRadioDownVolume() {
+
+        Radio radio = new Radio();
+
+        //  т.к у нас значение 0 по умолчанию, я сначала увеличиваю на пару пунктов, а потом уменьшаю громкость
+        // и делаю нужную проверку
+        radio.increaseSound();
+        assertEquals(1, radio.getCurrentSound());
 
         radio.increaseSound();
-        assertEquals(8, radio.getCurrentSound());
-
-        radio.increaseSound();
-        assertEquals(9, radio.getCurrentSound());
-
-        radio.increaseSound();
-        assertEquals(10, radio.getCurrentSound());
-
-        //дальнейшее нажатие ни к чему не привдит, значение остается прежним
-        radio.increaseSound();
-        assertEquals(10, radio.getCurrentSound());
-
-
-        //уменьшаем громкость
-        radio.decreaseSound();
-        assertEquals(9, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(8, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(7, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(6, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(5, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(4, radio.getCurrentSound());
-
-        radio.decreaseSound();
-        assertEquals(3, radio.getCurrentSound());
-
-        radio.decreaseSound();
         assertEquals(2, radio.getCurrentSound());
 
         radio.decreaseSound();
@@ -60,15 +45,16 @@ class RadioTest {
         radio.decreaseSound();
         assertEquals(0, radio.getCurrentSound());
 
-        //дальнейшее нажатие ни к чему не привдит, значение остается прежним
+        //дальнейшее нажатие ни к чему не приводит, значение остается прежним
         radio.decreaseSound();
         assertEquals(0, radio.getCurrentSound());
+    }
 
+    //переключаем радиостанцию на следующую
+    @Test
+    public void testRadioNextStation() {
 
-        //переключаем радиостанцию на следующую
-
-        radio.nextStation();
-        assertEquals(7, radio.getStationNumber());
+        Radio radio = new Radio(7);
 
         radio.nextStation();
         assertEquals(8, radio.getStationNumber());
@@ -76,12 +62,20 @@ class RadioTest {
         radio.nextStation();
         assertEquals(9, radio.getStationNumber());
 
-        //Если текущая радиостанция - 9 и клиент нажал на кнопку next (следующая) на пульте, то текущей должна стать 0-ая
+        radio.nextStation();
+        assertEquals(10, radio.getStationNumber());
+
+        //Если текущая радиостанция - 10 и клиент нажал на кнопку next (следующая) на пульте, то текущей должна стать 0-ая
         radio.nextStation();
         assertEquals(0, radio.getStationNumber());
+    }
 
+    //переключаем радиостанцию на предыдущую
+    @Test
+    public void testRadioPreviousStation() {
 
-        //переключаем радиостанцию на предыдущую
+        Radio radio = new Radio();
+
         radio.prevStation();
         assertEquals(9, radio.getStationNumber());
 
@@ -93,11 +87,16 @@ class RadioTest {
 
         radio.prevStation();
         assertEquals(6, radio.getStationNumber());
+    }
 
 
-        // выставляем станцию с цифрового пульта
+    // выставляем станцию с цифрового пульта
+    @Test
+    public void testInstallRadioStation () {
 
-        radio.setStation(3);
+        Radio radio2 = new Radio();
+
+        radio2.setStation(3);
 
     }
 }
