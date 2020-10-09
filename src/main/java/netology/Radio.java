@@ -2,12 +2,21 @@ package netology;
 
 public class Radio {
 
-    private int currentStation = 6;
+    private int currentStation;
     final int minStationNumber = 0;
-    final int maxStationNumber = 9;
+    final int maxStationNumber = 10;
     final int minSound = 0;
-    final int maxSound = 10;
-    private int currentSound = 6;
+    final int maxSound = 100;
+    private int currentSound;
+
+    // конструкторы
+    public Radio (){
+        this.currentStation = 10;
+    }
+
+    public Radio (int currentStation){
+        this.currentStation =currentStation;
+    }
 
 
     public int getStationNumber() {
@@ -60,6 +69,8 @@ public class Radio {
         }
     }
 }
+
+
 
 
 
