@@ -54,7 +54,7 @@ class RadioTest {
     @Test
     public void testRadioNextStation() {
 
-        Radio radio = new Radio(7);
+        Radio radio = new Radio(7,10);
 
         radio.nextStation();
         assertEquals(8, radio.getStationNumber());

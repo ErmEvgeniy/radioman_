@@ -4,18 +4,20 @@ public class Radio {
 
     private int currentStation;
     final int minStationNumber = 0;
-    final int maxStationNumber = 10;
+    private int maxStationNumber;
     final int minSound = 0;
     final int maxSound = 100;
     private int currentSound;
 
     // конструкторы
     public Radio (){
+        this.maxStationNumber = 10;
         this.currentStation = 10;
     }
 
-    public Radio (int currentStation){
+    public Radio (int currentStation, int maxStationNumber){
         this.currentStation =currentStation;
+        this.maxStationNumber = maxStationNumber;
     }
 
 
