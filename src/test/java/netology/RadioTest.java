@@ -1,28 +1,24 @@
 package netology;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
-
 class RadioTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getCurrentStation() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getMinStationNumber() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getMaxStationNumber() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getMinSound() {
     }
 
@@ -41,5 +37,4 @@ class RadioTest {
     @Test
     void setCurrentSound() {
     }
-
 }
